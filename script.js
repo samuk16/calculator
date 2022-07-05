@@ -1,10 +1,10 @@
 
 
 function add(a,b){
-    // return a + b
-    let sum = a + b;
+    return a + b
+    // let sum = a + b;
     // return sum;
-    console.log(sum);
+    // console.log(sum);
 }
 
 function subtract(a,b){return a - b}
@@ -18,7 +18,7 @@ function operate(o,n1,n2){
 
         case '+':
             add(n1,n2);
-            console.log('nashe');
+            
             
         break;
 
@@ -47,7 +47,8 @@ let containerNum = document.querySelectorAll('.containerNum');
 
 let numAndOperators = [0,1,2,3,4,5,6,7,8,9,0];
 let operators = ['+','-','*','/'];
-
+let prueba3  = [];
+let prueba4 = [] ;
 containerNum.forEach(item => item.addEventListener('click', e => {
 
 
@@ -56,19 +57,23 @@ containerNum.forEach(item => item.addEventListener('click', e => {
     //     console.log(1);
     // }
 
-    let prueba3 ;
-
+    
     function prueba(arr,num){
 
        let prueba2 = arr.map(a => {
             if(a == num){
                 console.log(num);
+                prueba4 = prueba3.push(num);
+                
             }
         });
         // return prueba2;
-
+        
     }
     prueba(numAndOperators,e.target.value);
+    console.log(prueba3);
+    console.log(prueba4);
+
 
 }))
 
