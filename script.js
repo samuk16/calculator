@@ -1,15 +1,23 @@
 
 
+
 function add(a,b){
-    return console.log(a + b);
-    // let sum = a + b;
-    // return sum;
+    
+    let sumTemp = a + b;
+    // console.log(a + b);
+    return sumTemp;
     // console.log(sum);
 }
+let tempValue1 ; 
+function subtract(a,b){
+    // return console.log(a - b)
+    return a - b;
+}
 
-function subtract(a,b){return console.log(a - b)}
-
-function multiply(a,b){return console.log(a * b)}
+function multiply(a,b){
+    // return console.log(a * b)
+    return a * b; 
+}
 
 function divide(a,b){return a / b}
 
@@ -17,23 +25,23 @@ function operate(o,n1,n2){
     switch(o){
 
         case '+':
-            add(n1,n2);
+            return add(n1,n2);
             
             
         break;
 
         case '-':
-            subtract(n1,n2);
+            return subtract(n1,n2);
 
         break;
         
         case '*':
-            multiply(n1,n2);
+            return multiply(n1,n2);
 
         break;
         
         case '/':
-            divide(n1,n2);
+            return divide(n1,n2);
 
         break;
         
@@ -41,11 +49,11 @@ function operate(o,n1,n2){
     }
 }
 
-let tempValue1 ;
+
 
 let containerNum = document.querySelectorAll('.containerNum');
 
-let numAndOperators = {
+let nums = {
     '1':1,
     '2':2,
     '3':3,
@@ -63,80 +71,74 @@ let operators = {
     '*':'*',
     '/':'/',
 };
-let pruebaNum3  = [];
-let pruebaOp6  = [];
-let pruebaNum5  = [];
+let arrNum1  = [];
+let arrOperators  = [];
+let arrNum2  = [];
+
+let Num1Final;
+let Num2Final;
+let opFinal;
+let Num1FinalInt;
+let Num2FinalInt;
 
 let isEmpty = true;
 
-let prueba4 = {
-    name:'nashe',
-};
+function restart(){
+    arrNum1 = [];
+    arrNum2 = [];
+    arrOperators = [];
+    isEmpty = true;
+}
+// let prueba4 = {
+//     name:'nashe',
+// };
 
 
 containerNum.forEach(item => item.addEventListener('click', e => {
 
-    /*
-    let nashe23 = [e.target.value];
-    
-    function prueba(arr,num){
-
-       let prueba2 = arr.map(a => {
-            if(a == num){
-                // console.log(num);
-                // prueba4 = prueba3.push(num);
-                tempValue1 = nashe23;
-                
-            }
-        });
-        // return prueba2;
-        
-    }
-    prueba(numAndOperators,e.target.value);
-    // console.log(prueba3);
-    console.log(tempValue1);
-    */
+   
     let tempE = e.target.value;
 
-    if(tempE in numAndOperators){
+    if(tempE in nums){
 
         if(isEmpty == true){
-            let count = pruebaNum3.push(e.target.value);
-            console.log(pruebaNum3);
+            let count = arrNum1.push(e.target.value);
+            console.log(arrNum1);
 
         }else{
-            let count = pruebaNum5.push(e.target.value);
-            console.log(pruebaNum5);
+            let count = arrNum2.push(e.target.value);
+            console.log(arrNum2);
         }
-        // console.log(e.target.value);
-       
-        // prueba4.tempNum = [e.target.value];
-        // console.log(prueba4);
+        
 
-    }else if(e.target.value in operators){
+    }else if(tempE in operators){
 
-        let count2 = pruebaOp6.push(e.target.value);
-        console.log(pruebaOp6);
+        let count2 = arrOperators.push(e.target.value);
+        console.log(arrOperators);
         isEmpty = false;
-        // prueba4.tempOper = e.target.value;
-        // console.log(prueba4)
+       
 
     }else if(tempE === '='){
 
-
-        // console.log('=')
-
         const returnInt = (element) => parseInt(element,10);
 
-        let nashe3 = pruebaNum3.map(returnInt).join('');
-        let nashe4 = pruebaNum5.map(returnInt).join('');
-        let opFinal = pruebaOp6.join('');
+         Num1Final = arrNum1.map(returnInt).join('');
+         Num2Final = arrNum2.map(returnInt).join('');
+         opFinal = arrOperators.join('');
+         Num1FinalInt =  parseInt(Num1Final,10)
+         Num2FinalInt =  parseInt(Num2Final,10)
 
-        console.log(nashe3)
-        console.log(nashe4)
-        console.log(operate(opFinal,nashe3,nashe4));
+        // console.log(typeof Num1FinalInt)
+        
+        
+        // console.log( sumTemp)
 
-        // console.log(nashe3.join(''));
+        console.log(operate(opFinal,Num1FinalInt,Num2FinalInt));
+        // tempValue1 = add(Num1FinalInt, Num2FinalInt);
+        // console.log( tempValue1)
+        restart();
+
+        
 
     
 
