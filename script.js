@@ -53,6 +53,10 @@ function operate(o,n1,n2){
 
 let containerNum = document.querySelectorAll('.containerNum');
 
+let screenNums = document.querySelector('.textCalc');
+
+
+
 let nums = {
     '1':1,
     '2':2,
@@ -92,6 +96,19 @@ function restart(){
 // let prueba4 = {
 //     name:'nashe',
 // };
+
+
+function screen(){
+    containerNum.forEach(item => item.addEventListener('click', e => {
+
+        let numPress = e.target.value;
+
+        screenNums.textContent = `${arrNum1} ${arrOperators} ${arrNum2}`;
+
+    }))
+
+}
+screen();
 
 
 containerNum.forEach(item => item.addEventListener('click', e => {
@@ -134,6 +151,8 @@ containerNum.forEach(item => item.addEventListener('click', e => {
         // console.log( sumTemp)
 
         console.log(operate(opFinal,Num1FinalInt,Num2FinalInt));
+
+        screenNums.textContent = `${operate(opFinal,Num1FinalInt,Num2FinalInt)}`;
         // tempValue1 = add(Num1FinalInt, Num2FinalInt);
         // console.log( tempValue1)
         restart();
@@ -147,4 +166,6 @@ containerNum.forEach(item => item.addEventListener('click', e => {
     
    
 }))
+
+
 
