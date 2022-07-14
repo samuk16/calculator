@@ -92,6 +92,8 @@ function restart(){
     arrNum2 = [];
     arrOperators = [];
     isEmpty = true;
+
+    screenTemp = '';
 }
 // let prueba4 = {
 //     name:'nashe',
@@ -198,25 +200,79 @@ containerNum.forEach(item => item.addEventListener('click', e => {
 
     }else if(targetE == '='){
 
-        console.log('nashe')
+        checkStr(screenTemp);
+        screenNums.textContent = checkStr(screenTemp);
 
+    }else if(targetE == 'delete'){
+        screenTemp = '';
+        screenNums.textContent = screenTemp;
     }
 
       
 
 }));
 
-function prueba213(str){
+function checkStr(str){
+
     let countOp = 0;
-    for (let i = 0; i < str.length; i++) {
+    let numeros = '';
+    let op= '';
+    let numeros2 = '';
+    let num2isEmpty = true;
+
+    for (let i = 0; i < str.length; i++){
         
 
-        if(str[i] in operators){
-             countOp++
-        }
+        // if(str[i] in operators){
+        //      countOp++
+        // }
         
+        if( i == 0 ){
+
+            if(str[i] == '-'){
+                numeros = str.slice(0,1);
+
+            }else if(str[i] in nums){
+
+                numeros += str.slice(i,(i+1));
+
+            }
+        }else if(op.length > 0){
+
+            // num2isEmpty = false;
+            if(str[i] in nums){
+
+                numeros2 += str.slice(i, (i+1));
+
+            }
+
+        }else if(str[i] in nums){
+
+            numeros += str.slice(i,(i+1));
+
+        }else if(str[i] in operators){
+
+            op = str.slice(i, (i+1));
+
+        }
+
     }
-    return countOp;
+
+    if(op == '+'){
+
+        numeros = parseInt(numeros,10);
+        numeros2 = parseInt(numeros2,10);
+        
+
+    }
+    
+    return (operate(op,numeros,numeros2));
+    // console.log(numeros);
+    // console.log(numeros2);
+    // console.log(op);
+
+
 }
 
-console.log(prueba213('12+44-'));
+// checkStr('3/4')
+// console.log(operate('+',-12,44));
