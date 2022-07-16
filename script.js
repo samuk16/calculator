@@ -8,7 +8,7 @@ function add(a,b){
     return sumTemp;
     // console.log(sum);
 }
-let tempValue1 ; 
+
 function subtract(a,b){
     // return console.log(a - b)
     return a - b;
@@ -75,6 +75,9 @@ let operators = {
     '*':'*',
     '/':'/',
 };
+
+let tempValue1 ; 
+
 let arrNum1  = [];
 let arrOperators  = [];
 let arrNum2  = [];
@@ -175,7 +178,7 @@ function screen(){
 let screenTemp  = '';
 let pruebanum2 ;
 let pruebaop = [];
-let pruebanum3 = [];
+let countOpPrueba = 0;
 
 containerNum.forEach(item => item.addEventListener('click', e => {
 
@@ -188,37 +191,65 @@ containerNum.forEach(item => item.addEventListener('click', e => {
     // pruebanum2 = screenTemp.slice(0,2);
     // console.log(pruebanum2);
     
-    if(screenTemp[0] == '-'){
-        
+    
 
-    }
+
     if(targetE in nums || targetE in operators){
 
         screenTemp += targetE;
         console.log(screenTemp);
         screenNums.textContent = screenTemp;
 
+        if(screenTemp.length > 1){
+
+        
+            if(screenTemp.endsWith('+') || screenTemp.endsWith('-') || screenTemp.endsWith('*') || screenTemp.endsWith('/') ){
+               
+               countOpPrueba++;
+               
+               console.log(countOpPrueba);
+               console.log('termina en un operador')
+   
+           } 
+           
+           if(countOpPrueba == 2){
+                
+                tempValue1 = checkStr(screenTemp);
+                screenNums.textContent = checkStr(screenTemp);
+                
+
+                screenTemp = `${tempValue1}${targetE}`;
+                countOpPrueba = 1;
+
+                console.log('calculoFinal')
+
+           }
+       }
     }else if(targetE == '='){
 
-        checkStr(screenTemp);
+        // checkStr(screenTemp);
         screenNums.textContent = checkStr(screenTemp);
-
+         
     }else if(targetE == 'delete'){
         screenTemp = '';
+        countOpPrueba= 0;
         screenNums.textContent = screenTemp;
     }
 
-      
-
+    
 }));
+
+
+let countOp = 0;
+
 
 function checkStr(str){
 
-    let countOp = 0;
+    
     let numeros = '';
     let op= '';
     let numeros2 = '';
-    let num2isEmpty = true;
+    // let num2isEmpty = true;
 
     for (let i = 0; i < str.length; i++){
         
