@@ -175,11 +175,12 @@ function screen(){
    
 // }))
 
-let screenTemp  = '';
+let screenTemp  = '0';
 let pruebanum2 ;
 let pruebaop = [];
 let countOpPrueba = 0;
 
+screenNums.textContent = screenTemp;
 containerNum.forEach(item => item.addEventListener('click', e => {
 
     let targetE = e.target.value;
@@ -193,12 +194,13 @@ containerNum.forEach(item => item.addEventListener('click', e => {
     
     
 
-
+    
     if(targetE in nums || targetE in operators){
 
         screenTemp += targetE;
         console.log(screenTemp);
         screenNums.textContent = screenTemp;
+
 
         if(screenTemp.length > 1){
 
@@ -211,7 +213,7 @@ containerNum.forEach(item => item.addEventListener('click', e => {
                console.log('termina en un operador')
    
            } 
-           
+          
            if(countOpPrueba == 2){
                 
                 tempValue1 = checkStr(screenTemp);
@@ -224,28 +226,57 @@ containerNum.forEach(item => item.addEventListener('click', e => {
                 console.log('calculoFinal')
 
            }
+           screenNums.textContent = screenTemp;
        }
+
+
     }else if(targetE == '='){
+
 
         // checkStr(screenTemp);
         screenNums.textContent = checkStr(screenTemp);
          
+
     }else if(targetE == 'delete'){
-        screenTemp = '';
+
+
+        screenTemp = '0';
         countOpPrueba= 0;
         screenNums.textContent = screenTemp;
+
+
     }
 
     
 }));
 
 
-let countOp = 0;
 
+
+
+function checkFirstNum(str){
+
+
+    // if(str[0] !== 0){
+
+    // }
+
+    let regexFirst = /[1-9]/g;
+    let regexD = /^0/;
+    
+    let prueba = str.match(regexFirst);
+    console.log(str.replace(regexD,44));
+    console.log(prueba);
+    // if(prueba === true){
+
+    // }
+}
+
+checkFirstNum('044');
 
 function checkStr(str){
 
-    
+    let countOp = 0;
     let numeros = '';
     let op= '';
     let numeros2 = '';
