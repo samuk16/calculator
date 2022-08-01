@@ -235,11 +235,11 @@ containerNum.forEach(item => item.addEventListener('click', e => {
 
             str3 = screenTemp.match(regexFirst);
 
-            // console.log(str3[0].length);
+            console.log(str3[0].length);
 
             
 
-            if (str3[0].length >= 2) {
+            if (str3[0].length >= 2 || screenTemp.endsWith('.')) {
                 // countOpPrueba--
             }else{
                 countOpPrueba++
@@ -255,7 +255,7 @@ containerNum.forEach(item => item.addEventListener('click', e => {
             // //    }
             //    countOpPrueba++;
             // //    screenTemp = checkFirstNum(screenTemp, targetE);
-            // //    console.log(countOpPrueba);
+            //    console.log(countOpPrueba);
             //    console.log('termina en un operador')
                
             // } 
@@ -271,7 +271,7 @@ containerNum.forEach(item => item.addEventListener('click', e => {
                 // countOpPrueba = 0;
                 countOpPrueba = 1;
 
-                // console.log('calculoFinal')
+                console.log('calculoFinal')
 
            }
            screenNums.textContent = screenTemp;
