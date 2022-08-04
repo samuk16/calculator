@@ -18,12 +18,13 @@
     <div class="containerCalc">
 
         <div class="screenCalc">
+            <p class="textResPrev">12 + 8 =</p>
             <p class="textCalc"></p>
         </div>
 
     
         <div class="containerNum">
-
+            
             <button class="num n1 btn" value="1">1</button>
             <button class="num n2 btn" value="2">2</button>
             <button class="num n3 btn" value="3">3</button>
@@ -35,12 +36,19 @@
             <button class="num n9 btn" value="9">9</button>
             <button class="num n0 btn" value="0">0</button>
             <button class="num dot btn" value=".">.</button>
-            <button class="num dL btn" value="dL">del1</button>
+            <button class="num dL btn" value="dL">
+                <svg width="25" height="17" class="svgDel" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.5 1H7.805L2 8.63636L7.805 16H23.5V1Z" stroke="#F0F1F5" stroke-width="2"/>
+                    <path d="M12.965 12.7273L19.63 4.27274" stroke="#F0F1F5" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12.965 4.54546L19.63 13" stroke="#F0F1F5" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                    
+            </button>
             <button class="operatorAdd btn" value="+">+</button>
             <button class="operatorSub btn" value="-">-</button>
-            <button class="operatorMul btn" value="*">*</button>
+            <button class="operatorMul btn" value="*">x</button>
             <button class="operatorDiv btn" value="/">/</button>
-            <button class="delete btn" value="delete">DEL</button>
+            <button class="delete btn" value="delete">C</button>
             <button class="equal btn" value="=">=</button>
 
         </div>
