@@ -5,7 +5,7 @@
 
     --text:#FFF;
     --background:#F0F1F5;
-    --divEqual:#FF5264;
+    --backgEqual:#FF5264;
 }
 *{
     box-sizing: border-box;
@@ -31,15 +31,28 @@ body{
     background-color: var(--colorBackScreen);
     width: 400px;
     height: 200px;
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    /* margin: 0 0 20px 0; */
+    margin: 0 0 20px 0; */
+    display: grid;
+    grid-template-columns: 400px;
+    grid-template-rows: 80px 120px;
+    justify-items: end;
+    align-items: end;
+    
+}
+
+.textResPrev{
+    font-size: 36px;
+    padding: 0 12px 0 0;
+    color: #7A7A7A;
 }
 
 .textCalc{
-    font-size: 96px;
-    padding: 0 12px 0 0;
+    font-size: 86px;
+    padding: 0 12px 10px 0;
+    
 }
 
 .btn{
@@ -51,7 +64,7 @@ body{
 }
 
 .equal{
-    background-color: var(--divEqual);
+    background-color: var(--backgEqual);
     
 }
 
